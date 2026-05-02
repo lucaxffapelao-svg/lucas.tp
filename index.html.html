@@ -111,38 +111,106 @@
       color: #ffffff;
     }
 
-    .profile-card {
+    .roi-card {
       background: linear-gradient(180deg, #0d1117, #090c10);
       border: 1px solid #30363d;
       border-radius: 28px;
-      padding: 22px;
+      padding: 24px;
       box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
     }
 
-    .profile-photo {
-      width: 100%;
-      aspect-ratio: 1 / 1.15;
-      object-fit: cover;
-      border-radius: 22px;
-      background: #161b22;
-      border: 1px solid #30363d;
-      display: block;
-    }
-
-    .profile-info {
-      padding: 22px 4px 4px;
-    }
-
-    .profile-info h2 {
+    .roi-card h2 {
       font-size: 24px;
       margin-bottom: 8px;
     }
 
-    .profile-info p {
-      font-size: 15px;
+    .roi-card > p {
       color: #8b949e;
-      margin-bottom: 0;
+      font-size: 15px;
+      margin-bottom: 22px;
     }
+
+    .roi-box {
+      background: #010409;
+      border: 1px solid #30363d;
+      border-radius: 18px;
+      padding: 18px;
+      margin-bottom: 16px;
+    }
+
+    .roi-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 12px 0;
+      border-bottom: 1px solid #21262d;
+      color: #c9d1d9;
+      font-size: 15px;
+    }
+
+    .roi-row:last-child {
+      border-bottom: 0;
+    }
+
+    .roi-row strong {
+      color: #ffffff;
+      font-size: 17px;
+    }
+
+    .roi-result {
+      background: linear-gradient(135deg, #238636, #2ea043);
+      color: #ffffff;
+      border-radius: 18px;
+      padding: 22px;
+      text-align: center;
+      margin-top: 16px;
+    }
+
+    .roi-result span {
+      display: block;
+      font-size: 14px;
+      opacity: 0.9;
+      margin-bottom: 4px;
+    }
+
+    .roi-result strong {
+      display: block;
+      font-size: 36px;
+      line-height: 1;
+    }
+
+    .mini-chart {
+      display: flex;
+      align-items: end;
+      gap: 10px;
+      height: 130px;
+      margin: 22px 0 10px;
+      padding: 16px;
+      background: #010409;
+      border: 1px solid #30363d;
+      border-radius: 18px;
+    }
+
+    .bar {
+      flex: 1;
+      border-radius: 10px 10px 4px 4px;
+      background: linear-gradient(180deg, #58a6ff, #1f6feb);
+      min-height: 22px;
+      position: relative;
+    }
+
+    .bar:nth-child(1) { height: 22%; }
+    .bar:nth-child(2) { height: 42%; }
+    .bar:nth-child(3) { height: 63%; }
+    .bar:nth-child(4) { height: 86%; background: linear-gradient(180deg, #3fb950, #238636); }
+
+    .chart-label {
+      display: flex;
+      justify-content: space-between;
+      color: #8b949e;
+      font-size: 13px;
+    }
+
 
     .stats {
       display: grid;
@@ -340,33 +408,214 @@
       border-top: 1px solid #30363d;
     }
 
+    .whatsapp-float {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 62px;
+      height: 62px;
+      background: #25d366;
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 30px;
+      box-shadow: 0 12px 32px rgba(37, 211, 102, 0.35);
+      z-index: 999;
+      transition: 0.3s;
+      animation: pulseWhats 1.8s infinite;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+      background: #20bd5a;
+    }
+
+    @keyframes pulseWhats {
+      0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.45);
+      }
+      70% {
+        box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+      }
+    }
+
     @media (max-width: 850px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
+      .hero {
+        min-height: auto;
+        padding: 48px 0 34px;
+        text-align: center;
       }
 
-      .profile-card {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .hero p {
+        font-size: 17px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+
+      .proof-line {
+        justify-content: center;
+      }
+
+      .roi-card {
         max-width: 420px;
         margin: auto;
+        text-align: left;
       }
+
+      .roi-result strong {
+        font-size: 32px;
+      }
+
 
       .stats {
         grid-template-columns: 1fr;
         margin-top: 0;
+        gap: 12px;
+      }
+
+      .stat {
+        padding: 18px;
+      }
+
+      .stat strong {
+        font-size: 28px;
       }
     }
 
     @media (max-width: 600px) {
+      .container {
+        width: 92%;
+      }
+
       .hero {
-        min-height: auto;
+        padding: 36px 0 28px;
+      }
+
+      .badge {
+        font-size: 12px;
+        padding: 7px 12px;
+        margin-bottom: 18px;
+      }
+
+      h1 {
+        font-size: 34px;
+        line-height: 1.08;
+        margin-bottom: 18px;
+      }
+
+      .hero p {
+        font-size: 16px;
+        margin-bottom: 24px;
+      }
+
+      .btn {
+        width: 100%;
+        padding: 14px 18px;
+        text-align: center;
+      }
+
+      .buttons {
+        gap: 10px;
+        margin-bottom: 22px;
+      }
+
+      .proof-line {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+        font-size: 14px;
+      }
+
+      .roi-card {
+        max-width: 100%;
+        padding: 18px;
+      }
+
+      .roi-card h2 {
+        font-size: 21px;
+      }
+
+      .roi-card > p {
+        font-size: 14px;
+      }
+
+      .roi-row {
+        font-size: 14px;
+      }
+
+      .roi-row strong {
+        font-size: 15px;
+      }
+
+      .mini-chart {
+        height: 105px;
+      }
+
+      .roi-result strong {
+        font-size: 30px;
+      }
+
+
+      .section {
+        padding: 56px 0;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+
+      .section-subtitle {
+        font-size: 16px;
+        margin-bottom: 30px;
+      }
+
+      .card,
+      .testimonial {
+        padding: 22px;
       }
 
       .highlight {
-        padding: 32px 22px;
+        padding: 30px 20px;
+        border-radius: 20px;
+      }
+
+      .highlight h2 {
+        font-size: 26px;
+      }
+
+      .highlight p {
+        font-size: 16px;
+      }
+
+      .step {
+        padding-left: 48px;
+      }
+
+      .cta {
+        padding: 62px 0;
       }
 
       .cta h2 {
-        font-size: 32px;
+        font-size: 30px;
+      }
+
+      .cta p {
+        font-size: 16px;
       }
     }
   </style>
@@ -391,12 +640,48 @@
         </div>
       </div>
 
-      <div class="profile-card">
-        <img class="profile-photo" src="lucas.jpg" alt="Foto do gestor de tráfego" />
-        <div class="profile-info">
-          <h2>Lucas Santos</h2>
-          <p>Gestor de tráfego e estrategista digital focado em posicionamento, performance e crescimento comercial.</p>
+      <div class="roi-card">
+        <h2>Imagine o impacto de uma campanha bem feita</h2>
+        <p>Agora pensa comigo: imagine investir apenas <strong>R$15 por dia</strong> em anúncios e conseguir gerar <strong>5 vendas de R$300 todos os dias</strong>.</p>
+        <p>Em um cenário assim, você não está apenas anunciando — você está construindo um sistema de vendas previsível.</p>
+
+        <div class="roi-box">
+          <div class="roi-row">
+            <span>Investimento em anúncios</span>
+            <strong>R$ 15</strong>
+          </div>
+          <div class="roi-row">
+            <span>Vendas geradas</span>
+            <strong>5</strong>
+          </div>
+          <div class="roi-row">
+            <span>Valor por venda</span>
+            <strong>R$ 300</strong>
+          </div>
+          <div class="roi-row">
+            <span>Faturamento estimado</span>
+            <strong>R$ 1.500</strong>
+          </div>
         </div>
+
+        <div class="mini-chart">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+        <div class="chart-label">
+          <span>Investimento</span>
+          <span>Resultado</span>
+        </div>
+
+        <div class="roi-result">
+          <span>Em 30 dias isso pode gerar aproximadamente</span>
+          <strong>R$ 45.000</strong>
+        </div>
+        <p style="margin-top:14px;color:#8b949e;font-size:14px;">
+          Claro, isso é um exemplo para você entender o potencial. O objetivo do meu trabalho é justamente encontrar a melhor estratégia para transformar investimento em vendas reais dentro do seu negócio.
+        </p>
       </div>
     </div>
   </header>
@@ -554,5 +839,14 @@
       <p>© 2026 - Lucas Santos | Estratégia Digital, Tráfego Pago e Performance Comercial</p>
     </div>
   </footer>
+
+  <a
+    class="whatsapp-float"
+    href="https://wa.me/5582981254526?text=Ol%C3%A1%2C%20vim%20pela%20sua%20p%C3%A1gina%20e%20quero%20entender%20como%20posso%20vender%20mais."
+    target="_blank"
+    aria-label="Falar no WhatsApp"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M20.52 3.48A11.82 11.82 0 0012.06 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.15 1.6 5.96L0 24l6.33-1.66a11.88 11.88 0 005.73 1.47h.01c6.56 0 11.9-5.34 11.9-11.9 0-3.18-1.24-6.17-3.45-8.43zM12.07 21.6h-.01a9.67 9.67 0 01-4.92-1.35l-.35-.21-3.76.99 1-3.66-.23-.38a9.63 9.63 0 01-1.48-5.1c0-5.33 4.34-9.67 9.68-9.67 2.58 0 5 .99 6.83 2.82a9.6 9.6 0 012.83 6.84c0 5.33-4.34 9.67-9.69 9.67zm5.3-7.24c-.29-.15-1.7-.84-1.96-.94-.26-.1-.45-.15-.64.15-.19.29-.73.94-.9 1.13-.17.19-.33.22-.62.07-.29-.15-1.21-.45-2.3-1.43-.85-.76-1.42-1.7-1.58-1.99-.17-.29-.02-.45.13-.6.13-.13.29-.33.44-.5.15-.17.2-.29.3-.48.1-.19.05-.36-.02-.5-.07-.15-.64-1.54-.88-2.12-.23-.55-.47-.48-.64-.49l-.55-.01c-.19 0-.5.07-.76.36-.26.29-1 1-1 2.43 0 1.43 1.02 2.8 1.16 3 .15.19 2 3.06 4.85 4.29.68.29 1.2.46 1.61.59.68.22 1.3.19 1.79.12.55-.08 1.7-.7 1.94-1.38.24-.68.24-1.27.17-1.38-.07-.1-.26-.15-.55-.29z"/></svg>
+  </a>
 </body>
 </html>
